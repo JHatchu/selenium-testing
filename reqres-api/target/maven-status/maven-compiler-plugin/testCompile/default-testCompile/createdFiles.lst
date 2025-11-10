@@ -1,0 +1,7 @@
+com\selenium\reqres\tests\BaseApiTest$ReqResMockFilter.class
+com\selenium\reqres\tests\CreateUserTest.class
+com\selenium\reqres\tests\DeleteUserTest.class
+com\selenium\reqres\tests\UpdateUserTest.class
+com\selenium\reqres\utils\WordDocGenerator.class
+com\selenium\reqres\tests\BaseApiTest.class
+com\selenium\reqres\tests\GetUserTest.class

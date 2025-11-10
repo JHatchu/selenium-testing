@@ -1,30 +1,38 @@
-
 package com.selenium.reqres.tests;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class UpdateUserTest {
+public class UpdateUserTest extends BaseApiTest {
 
-    @Test
+    @Test(priority = 1)
     public void updateUser() {
-        RestAssured.baseURI = "https://reqres.in/api";
-        String body = "{\n  \"name\": \"neo\",\n  \"job\": \"the one\"\n}";
+        String body = "{ \"name\": \"Jane Smith\", \"job\": \"Senior QA Engineer\" }";
 
-        Response resp = given()
+        given()
                 .header("Content-Type", "application/json")
                 .body(body)
-                .when()
-                .put("/users/2")
+                .when().put("/users/2")
                 .then()
                 .statusCode(200)
-                .body("name", equalTo("neo"))
-                .extract().response();
+                .body("name", equalTo("Jane Smith"))
+                .body("job", equalTo("Senior QA Engineer"))
+                .body("updatedAt", notNullValue());
+    }
 
-        System.out.println(resp.asPrettyString());
+    @Test(priority = 2)
+    public void partialUpdateUser() {
+        String body = "{ \"job\": \"Lead QA Engineer\" }";
+
+        given()
+                .header("Content-Type", "application/json")
+                .body(body)
+                .when().patch("/users/2")
+                .then()
+                .statusCode(200)
+                .body("job", equalTo("Lead QA Engineer"))
+                .body("updatedAt", notNullValue());
     }
 }
