@@ -1,0 +1,7 @@
+com\selenium\orangehrm\tests\RecruitmentTest.class
+com\selenium\orangehrm\pages\BasePage.class
+com\selenium\orangehrm\pages\LoginPage.class
+com\selenium\orangehrm\tests\LeaveTest.class
+com\selenium\orangehrm\tests\LoginTest.class
+com\selenium\orangehrm\pages\DashboardPage.class
+com\selenium\orangehrm\pages\LeavePage.class
